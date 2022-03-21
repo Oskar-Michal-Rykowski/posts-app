@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const MainLayout = ({ children }) => <div>{children}</div>;
+export const Homepage = () => <h1>HOMEPAGE</h1>;
 
-MainLayout.propTypes = {
+Homepage.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };

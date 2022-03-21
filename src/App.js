@@ -1,21 +1,23 @@
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import { store } from './redux/store';
+import { Homepage } from './components/views/Homepage/Homepage';
+import { Post } from './components/views/Post/Post';
+import { MainLayout } from './components/layout/MainLayout/MainLayout';
+
+const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <MainLayout>
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route exact path="/post/:id" element={<Post />} />
+        </Routes>
+      </MainLayout>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;
