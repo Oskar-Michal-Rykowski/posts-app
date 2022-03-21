@@ -1,0 +1,35 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.top {
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  .image {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .gradient {
+    position: absolute;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+    width: 100%;
+    height: 100%;
+  }
+
+  .elements {
+    position: absolute;
+
+    .slogan {
+      font-size: 150px;
+      font-family: $brand-font;
+      line-height: 120px;
+      color: $light-color;
+      margin: 0;
+    }
+  }
+}
