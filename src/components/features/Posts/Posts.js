@@ -9,22 +9,25 @@ import { fetchPosts, getPosts } from '../../../redux/postsRedux';
 import { Link } from 'react-router-dom';
 
 const Posts = ({ posts }) => {
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, []);
-  console.log(posts);
+  const reversePosts = posts.reverse();
   return (
     <Container className={styles.posts}>
       <h1>Post</h1>
-      {posts.map((post) => (
-        <Card key={post.id}>
-          <Card.Header as="h5">Who: {post.userId}</Card.Header>
-          <Card.Body>
-            <Card.Title>What: {post.title}</Card.Title>
-            <Link to={`post/${post.id}`}>FIND MORE</Link>
-          </Card.Body>
-        </Card>
-      ))}
+      <div className={styles.list}>
+        {reversePosts.map((post) => (
+          <Card className={styles.card} key={post.id}>
+            <Card.Header className={styles.header} as="h5">
+              Who: {post.userId}
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>What: {post.title}</Card.Title>
+              <Link className={styles.link} to={`post/${post.id}`}>
+                FIND MORE
+              </Link>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </Container>
   );
 };
@@ -35,17 +38,11 @@ Posts.propTypes = {
   posts: PropTypes.array,
 };
 
-const mapStateToProps = (state) => ({
-  // posts: getPosts(state),
-});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = (dispatch) => ({
-  // fetchPosts: () => dispatch(fetchPosts()),
-});
+const mapDispatchToProps = (dispatch) => ({});
 
 export const PostsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Posts);
-
-// export default PostsContainer;

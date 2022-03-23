@@ -1,0 +1,32 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.posts {
+  margin-top: 20px;
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .card {
+      margin: 10px 5px;
+      width: 30%;
+
+      .link {
+        text-decoration: none;
+        color: $brand-color;
+      }
+    }
+  }
+}
+
+// @media (max-width: 1200px) {
+//   .posts {
+//     .list {
+//       .card {
+//         margin: 10px 5px;
+//       }
+//     }
+//   }
+// }
