@@ -5,6 +5,7 @@ import { getPosts } from '../../../redux/postsRedux';
 import { Card, Container } from 'react-bootstrap';
 import { fetchComments, getComments } from '../../../redux/commentsRedux';
 import { Link } from 'react-router-dom';
+import styles from './Post.module.scss';
 
 const Post = ({ posts, fetchComments, comments }) => {
   useEffect(() => {
@@ -22,32 +23,32 @@ const Post = ({ posts, fetchComments, comments }) => {
   console.log('comment', commentsForThePost);
 
   return (
-    <div>
-      <Link to={`/`}>Back</Link>
-      <Container>
-        <Card key={post.id}>
-          <Card.Header as="h5">Who: {post.userId}</Card.Header>
-          <Card.Body>
-            <Card.Title>What: {post.title}</Card.Title>
-            <Card.Text>{post.text}</Card.Text>
-          </Card.Body>
-        </Card>
-        <Container>
-          <h3> Comments </h3>
-          <div>
-            {commentsForThePost.map((comment) => (
-              <Card key={comment.id}>
-                <Card.Header as="h5">Who: {comment.email}</Card.Header>
-                <Card.Body>
-                  <Card.Title>What: {comment.name}</Card.Title>
-                  <Card.Text>{comment.body}</Card.Text>
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
-        </Container>
+    <Container className={styles.view}>
+      <Link className={styles.link} to={`/`}>
+        Back
+      </Link>
+      <Card className={styles.post} key={post.id}>
+        <Card.Header as="h5">Who: {post.userId}</Card.Header>
+        <Card.Body>
+          <Card.Title>What: {post.title}</Card.Title>
+          <Card.Text>{post.text}</Card.Text>
+        </Card.Body>
+      </Card>
+      <Container className={styles.comments}>
+        <h3> Comments </h3>
+        <div>
+          {commentsForThePost.map((comment) => (
+            <Card className={styles.comment} key={comment.id}>
+              <Card.Header as="h5">Who: {comment.email}</Card.Header>
+              <Card.Body>
+                <Card.Title>What: {comment.name}</Card.Title>
+                <Card.Text>{comment.body}</Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       </Container>
-    </div>
+    </Container>
   );
 };
 

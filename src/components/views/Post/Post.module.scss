@@ -1,0 +1,20 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/global.scss';
+
+.view {
+  a.link {
+    text-decoration: none;
+    color: $brand-color;
+    font-size: 30px;
+    line-height: 60px;
+  }
+  .post {
+    margin: 20px 0;
+  }
+
+  .comments {
+    .comment {
+      margin: 10px 0;
+    }
+  }
+}
