@@ -36,6 +36,7 @@ export const Homepage = ({ addPost }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     addPost(newPost);
+    console.log(newPost);
   };
 
   return (
@@ -59,7 +60,7 @@ export const Homepage = ({ addPost }) => {
             </Col>
             <Col xs={5}>
               <div className={styles.form}>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={(e) => handleSubmit(e)}>
                   <Form.Group className="mb-3" controlId="controlInput1">
                     <Form.Label className={styles.label}>
                       Email address
@@ -116,7 +117,7 @@ const mapDispatchToProps = (dispatch) => ({
   addPost: () => dispatch(addPost()),
 });
 
-export const PostsContainer = connect(
+export const HomepageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Posts);
+)(Homepage);

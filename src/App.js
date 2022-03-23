@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { store } from './redux/store';
-import { Homepage } from './components/views/Homepage/Homepage';
+import { HomepageContainer as Homepage } from './components/views/Homepage/Homepage';
 import { Post } from './components/views/Post/Post';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 
