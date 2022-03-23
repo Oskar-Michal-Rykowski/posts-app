@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { HomepageContainer as Homepage } from './components/views/Homepage/Homepage';
 import { Post } from './components/views/Post/Post';
-import { MainLayout } from './components/layout/MainLayout/MainLayout';
+import { MainLayoutContainer as MainLayout } from './components/layout/MainLayout/MainLayout';
 
 const App = () => (
   <Provider store={store}>

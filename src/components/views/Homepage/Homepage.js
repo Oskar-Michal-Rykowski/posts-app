@@ -9,9 +9,9 @@ import { addPost, fetchPosts, getPosts } from '../../../redux/postsRedux';
 import { connect } from 'react-redux';
 
 export const Homepage = ({ addPost, fetchPosts, posts }) => {
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, []);
 
   const [newPost, setNewPost] = useState();
 
