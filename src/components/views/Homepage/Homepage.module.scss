@@ -38,6 +38,40 @@
       .label {
         color: $light-color;
       }
+
+      input.input,
+      textarea.input {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: $light-color;
+      }
+
+      button.submit {
+        background-color: $brand-color;
+        border: none;
+        transition: 1s;
+      }
+
+      button.submit:hover {
+        background-color: none;
+        border: $brand-color;
+        transition: 1s;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .top {
+    height: 150vh;
+
+    .image {
+      height: 100%;
+      width: auto;
+    }
+
+    .elements .form {
+      margin: 70px 5px;
+      width: 100%;
     }
   }
 }

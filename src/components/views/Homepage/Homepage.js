@@ -52,7 +52,7 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
         <div className={styles.gradient}></div>
         <Container className={styles.elements} fluid>
           <Row>
-            <Col xs={7}>
+            <Col lg xl={7}>
               <h1 className={styles.slogan}>
                 What is your
                 <br /> favourite
@@ -60,7 +60,7 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
                 sport?
               </h1>
             </Col>
-            <Col xs={5}>
+            <Col lg xl={5}>
               <div className={styles.form}>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="controlInput1">
@@ -68,6 +68,7 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
                       Email address
                     </Form.Label>
                     <Form.Control
+                      className={styles.input}
                       onChange={handleChangeId}
                       type="email"
                       placeholder="name@example.com"
@@ -76,6 +77,7 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
                   <Form.Group className="mb-3" controlId="controlInput2">
                     <Form.Label className={styles.label}>Title</Form.Label>
                     <Form.Control
+                      className={styles.input}
                       onChange={handleChangeTitle}
                       type="text"
                       placeholder="Your idea in 3 words"
@@ -83,16 +85,17 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="controlTextarea1">
                     <Form.Label className={styles.label}>
-                      Example textarea
+                      What is your sport?
                     </Form.Label>
                     <Form.Control
+                      className={styles.input}
                       onChange={handleChangeBody}
                       as="textarea"
                       rows={3}
-                      placeholder="Describe your idea"
+                      placeholder="Describe why!"
                     />
                   </Form.Group>
-                  <Button variant="primary" type="submit">
+                  <Button className={styles.submit} type="submit">
                     Submit
                   </Button>
                 </Form>
