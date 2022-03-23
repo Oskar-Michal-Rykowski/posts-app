@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
@@ -9,10 +9,6 @@ import { addPost, fetchPosts, getPosts } from '../../../redux/postsRedux';
 import { connect } from 'react-redux';
 
 export const Homepage = ({ addPost, fetchPosts, posts }) => {
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, []);
-
   const [newPost, setNewPost] = useState();
 
   const handleChangeId = (event) => {
@@ -59,9 +55,9 @@ export const Homepage = ({ addPost, fetchPosts, posts }) => {
             <Col xs={7}>
               <h1 className={styles.slogan}>
                 What is your
-                <br /> business
+                <br /> favourite
                 <br />
-                plan?
+                sport?
               </h1>
             </Col>
             <Col xs={5}>
