@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 
 import styles from './Homepage.module.scss';
 import { PostsContainer as Posts } from '../../features/Posts/Posts';
-import { addPost } from '../../../redux/postsRedux';
+import { addPost, fetchPosts, getPosts } from '../../../redux/postsRedux';
 import { connect } from 'react-redux';
 
-export const Homepage = ({ addPost }) => {
+export const Homepage = ({ addPost, fetchPosts, posts }) => {
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   const [newPost, setNewPost] = useState();
 
   const handleChangeId = (event) => {
     setNewPost({
       ...newPost,
-      id: event.target.value,
+      userId: event.target.value,
+      id: '12343242423424',
     });
-    // console.log('newPost', newPost);
+
+    console.log('newPost', newPost);
   };
 
   const handleChangeTitle = (event) => {
@@ -99,21 +105,22 @@ export const Homepage = ({ addPost }) => {
           </Row>
         </Container>
       </div>
-      <Posts />
+      <Posts posts={posts} />
     </div>
   );
 };
 
 Homepage.propTypes = {
   addPost: PropTypes.func,
+  fetchPosts: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
-  // posts: getPosts(state),
+  posts: getPosts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // fetchPosts: () => dispatch(fetchPosts()),
+  fetchPosts: () => dispatch(fetchPosts()),
   addPost: (newPost) => dispatch(addPost(newPost)),
 });
 

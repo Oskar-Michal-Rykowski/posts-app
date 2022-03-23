@@ -46,9 +46,7 @@ export const reducer = (statePart = [], action = {}) => {
       };
     }
     case ADD_POST: {
-      statePart.push(action.payload);
-      console.log('action', action.payload);
-      return statePart;
+      return [...statePart, action.payload];
     }
     default:
       return statePart;

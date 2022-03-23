@@ -8,11 +8,11 @@ import { connect } from 'react-redux';
 import { fetchPosts, getPosts } from '../../../redux/postsRedux';
 import { Link } from 'react-router-dom';
 
-const Posts = ({ fetchPosts, posts, addPost }) => {
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
+const Posts = ({ posts }) => {
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, []);
+  console.log(posts);
   return (
     <Container className={styles.posts}>
       <h1>Post</h1>
@@ -36,11 +36,11 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  posts: getPosts(state),
+  // posts: getPosts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchPosts: () => dispatch(fetchPosts()),
+  // fetchPosts: () => dispatch(fetchPosts()),
 });
 
 export const PostsContainer = connect(
